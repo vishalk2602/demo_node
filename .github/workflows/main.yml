@@ -17,6 +17,9 @@ jobs:
  
         - name: Install jest
           run: npm install jest
+
+        - name: Install express
+          run: npm install express        
           
         - name: Allow from root -1 
           run: npm config set user 0
