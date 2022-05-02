@@ -1,0 +1,9 @@
+{
+		"scripts": {
+				"start": "node src",
+				"test": "jest src/app.test.js"
+		},
+		"dependencies": {
+				"jest": "^28.0.3"
+		}
+}
