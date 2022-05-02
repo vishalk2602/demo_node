@@ -17,6 +17,9 @@ jobs:
  
         - name: Install jest
           run: npm install jest
+          
+        - name: Install jest supertest 
+          run: npm install jest supertest --save-dev
 
         - name: Install express
           run: npm install express        
