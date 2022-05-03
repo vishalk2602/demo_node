@@ -30,7 +30,7 @@ jobs:
     displayName: 'test'
 - job: Job_2 
   dependsOn: Job_1
-  condition: succeded()
+  condition: succeeded()
   displayName: Deployment
   pool:
     vmImage: ubuntu-latest
