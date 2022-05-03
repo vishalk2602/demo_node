@@ -31,11 +31,9 @@ stages:
       displayName: 'test'
 
 
-- stage: dev
+- stage: deploy-dev
   jobs :
   - job: Job_2 
-    dependsOn: Job_1
-    condition: succeeded()
     displayName: Deployment
     pool:
       vmImage: ubuntu-latest
@@ -47,11 +45,9 @@ stages:
           echo deployed
       displayName: 'deployment'
 
-- stage: stage
+- stage: deploy-stage
   jobs :
   - job: Job_2 
-    dependsOn: Job_1
-    condition: succeeded()
     displayName: Deployment
     pool:
       vmImage: ubuntu-latest
@@ -63,11 +59,9 @@ stages:
           echo deployed
       displayName: 'deployment'
 
-- stage: prod
+- stage: deploy-prod
   jobs :
   - job: Job_2 
-    dependsOn: Job_1
-    condition: succeeded()
     displayName: Deployment
     pool:
       vmImage: ubuntu-latest
