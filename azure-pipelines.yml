@@ -28,7 +28,9 @@ jobs:
   - script: |
       npm test
     displayName: 'test'
-- job: Job_2
+- job: Job_2 
+  dependsOn: Job_1
+  condition: succeded()
   displayName: Deployment
   pool:
     vmImage: ubuntu-latest
