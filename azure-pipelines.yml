@@ -6,27 +6,36 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+jobs:
+- job: Job_1
+  displayName: CI
+  pool:
+    vmImage: ubuntu-latest
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Node.js'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '14.x'
+    displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm install jest
-    npm install jest supertest --save-dev
-    npm install express 
-  displayName: 'npm install and build'
+  - script: |
+      npm install
+      npm install jest
+      npm install jest supertest --save-dev
+      npm install express 
+    displayName: 'npm install and build'
 
-- script: |
-    npm test
-  displayName: 'test'
-- task: CmdLine@2
-  inputs:
-    script: |
-      echo deployed
-  displayName: 'deployment'
+  - script: |
+      npm test
+    displayName: 'test'
+- job: Job_2
+  displayName: Deployment
+  pool:
+    vmImage: ubuntu-latest
+
+  steps:
+  - task: CmdLine@2
+    inputs:
+      script: |
+        echo deployed
+    displayName: 'deployment'
