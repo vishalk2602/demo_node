@@ -31,7 +31,7 @@ stages:
       displayName: 'test'
 
 
-- stage: deploy-dev
+- stage: deploy_dev
   jobs :
   - job: Job_2 
     displayName: Deployment
@@ -45,7 +45,7 @@ stages:
           echo deployed
       displayName: 'deployment'
 
-- stage: deploy-stage
+- stage: deploy_stage
   jobs :
   - job: Job_2 
     displayName: Deployment
@@ -59,7 +59,7 @@ stages:
           echo deployed
       displayName: 'deployment'
 
-- stage: deploy-prod
+- stage: deploy_prod
   jobs :
   - job: Job_2 
     displayName: Deployment
