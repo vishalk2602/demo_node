@@ -28,16 +28,52 @@ jobs:
   - script: |
       npm test
     displayName: 'test'
-- job: Job_2 
-  dependsOn: Job_1
-  condition: succeeded()
-  displayName: Deployment
-  pool:
-    vmImage: ubuntu-latest
 
-  steps:
-  - task: CmdLine@2
-    inputs:
-      script: |
-        echo deployed
-    displayName: 'deployment'
+stages:
+- stage: dev
+  jobs :
+  - job: Job_2 
+    dependsOn: Job_1
+    condition: succeeded()
+    displayName: Deployment
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo deployed
+      displayName: 'deployment'
+
+- stage: stage
+  jobs :
+  - job: Job_2 
+    dependsOn: Job_1
+    condition: succeeded()
+    displayName: Deployment
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo deployed
+      displayName: 'deployment'
+
+- stage: prod
+  jobs :
+  - job: Job_2 
+    dependsOn: Job_1
+    condition: succeeded()
+    displayName: Deployment
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+    - task: CmdLine@2
+      inputs:
+        script: |
+          echo deployed
+      displayName: 'deployment'
