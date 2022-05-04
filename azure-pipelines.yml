@@ -42,7 +42,7 @@ stages:
     - task: CmdLine@2
       inputs:
         script: |
-          echo deployed app ${{ appname }}
+          echo deployed app ${{ parameters.appname }}
       displayName: 'deployment'
 
 - stage: deploy_stage
