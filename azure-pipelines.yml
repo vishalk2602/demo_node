@@ -43,7 +43,7 @@ stages:
       inputs:
         script: |
           echo deployed app ${{ variables.appname }}
-      displayName: 'deployment'
+      displayName: 'deployment of ${{ variables.appname }} '
 
 - stage: deploy_stage
   jobs :
